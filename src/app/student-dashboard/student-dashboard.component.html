@@ -1,0 +1,68 @@
+<div>
+    <div style="width: 250px; height: 70px;">
+        <mat-card style="margin-right:90px; height: 50px; width:190px">
+            <mat-card-header>
+                <mat-card-title>Hello {{this.customerAccount.firstName}}</mat-card-title>
+                <mat-card-title>Role: Student</mat-card-title>
+              </mat-card-header>
+        </mat-card>
+</div>
+<br/>
+<div>
+    <mat-toolbar style="background-color:burlywood;">
+        
+            <span style="margin-left:500px ; font-size: large;">Hello!!! Here are your Assigned Exams. GoodLuck!!!</span>
+       
+    </mat-toolbar>
+</div>
+<div style="justify-content:space-between;">
+    <table mat-table [dataSource]="this.assignedTests" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="SNo">
+          <th mat-header-cell *matHeaderCellDef> SNo. </th>
+          <td mat-cell *matCellDef="let element; let i=index" >{{i+1}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="TestName">
+            <th mat-header-cell *matHeaderCellDef>Test Name</th>
+            <td mat-cell *matCellDef="let element">{{element.testName}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Percentage">
+            <th mat-header-cell *matHeaderCellDef>Percentage Scored</th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.percentage>0">{{element.percentage}}</ng-container>
+                <ng-container *ngIf="element.percentage==0 && element.isCompleted==0">-</ng-container>
+                <ng-container *ngIf="element.percentage==0 && element.isCompleted==1">0</ng-container>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.isCompleted==0">Not Yet taken</ng-container>
+                <ng-container *ngIf="element.isCompleted==1">Taken</ng-container>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="Result">
+            <th mat-header-cell *matHeaderCellDef>Result</th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.isCompleted==1 && element.percentage>=element.passPercentage">Pass</ng-container>
+                <ng-container *ngIf="element.isCompleted==1 &&  element.percentage<element.passPercentage">Fail</ng-container>
+                <ng-container *ngIf="element.isCompleted==0">-</ng-container>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="StartExam" aria-setsize="auto">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+               <button mat-raised-button *ngIf="element.isCompleted==0" (click)="startExam(element.testId)"color="primary">Start Exam</button>
+               <!-- <button mat-raised-button color="accent" *ngIf="element.isCompleted==1" (click)="startExam(element.testId)">Retake Exam</button> -->
+         </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+</div>
+    

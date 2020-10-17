@@ -1,0 +1,51 @@
+<div>
+<div style="width: 250px; height: 70px;">
+    <mat-card style="margin-right:90px; height: 50px; width:190px">
+        <mat-card-header>
+            <mat-card-title>Hello {{this.customerAccount.firstName}}</mat-card-title>
+            <mat-card-title>Role: Admin</mat-card-title>
+          </mat-card-header>
+          <button style="margin-left:1200px;" mat-raised-button color="primary" (click)="openDialog()">Add Test</button>
+    </mat-card>
+    
+</div>
+
+<div style="justify-content:space-between;">
+<table mat-table [dataSource]="this.tests" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="SNo">
+      <th mat-header-cell *matHeaderCellDef> SNo. </th>
+      <td mat-cell *matCellDef="let element; let i=index" >{{i+1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TestName">
+        <th mat-header-cell *matHeaderCellDef> TestName </th>
+        <td mat-cell *matCellDef="let element">{{element.testName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AddQuestions">
+        <th mat-header-cell *matHeaderCellDef>Questions</th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-button color="primary" (click)="addQuestions(element.testId)">Add Questions</button> </td>
+      </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="AssignStudents" aria-setsize="auto">
+      <th mat-header-cell *matHeaderCellDef>Assign Students </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary"
+        (click)=openDialog(element.testId)>Assigned Students</button> </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+</div>
+<!-- <div *ngIf="isLoading" 
+   style="display: flex; justify-content: center; align-items: center; background: rgb(255, 255, 255);">
+  <mat-progress-spinner 
+    color="primary" 
+    mode="indeterminate">
+  </mat-progress-spinner>
+</div> -->
+  

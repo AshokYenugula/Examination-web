@@ -1,0 +1,11 @@
+
+  .center {
+    margin-left: 20px;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+ 
+  mat-form-field {
+    width: 100%;
+  }

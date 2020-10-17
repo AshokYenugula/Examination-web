@@ -1,0 +1,64 @@
+<div class="main-div">
+    <mat-card class="example-card">
+    <mat-card-header>
+    <mat-card-itle>Login Page</mat-card-itle>
+</mat-card-header>
+        <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="margin-top: 10px;">
+            <mat-form-field>
+                <input matInput type="text" autocomplete="off" placeholder="Enter your Email"  formControlName="userNameControl" required>
+                <!-- autocomplete="off" -->
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Enter your Password" formControlName="passwordControl" required>
+               
+            </mat-form-field>
+            <br/>
+            <button mat-raised-button color="primary" style="margin-right: 10px">Login</button>
+           <a mat-raised-button routerLink="/signup" routerLinkActive="active">Register</a>
+        </form>
+   
+    
+</mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm"> 
+          <label>Enter your email</label>
+          <input type="text" formControlName="userNameControl" style="margin-left: 30px; margin-top: 30px;" placeholder="pat@example.com">
+          <br/>
+          <label>Enter your password</label>
+          <input type="text" formControlName="passwordControl" style="margin-left: 30px; margin-top: 30px;" placeholder="Enter your password">
+          <br/>
+        <button class="button" type="submit">Login</button>
+      </form>
+  </div> -->
+<!-- <div class="form-group">
+<label>UserName</label>
+<input class="form-control" type="text" style="margin-left: 30px; margin-top: 30px;" placeholder="Enter Username"
+ [(ngModel)]="email">
+<br/>
+<label>Password</label>
+<input class="form-control" type="text" style="margin-left: 30px; margin-top: 30px;" placeholder="Enter Password"
+ [(ngModel)]="password">
+</div>
+<div>
+    <button type="submit" style="margin-left: 30px; margin-top: 30px;" (click)=onSubmit()>Submit</button>
+</div> -->

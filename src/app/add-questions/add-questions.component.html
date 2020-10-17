@@ -1,0 +1,42 @@
+
+<div class="center">
+    <mat-toolbar style="text-align: center; font-size: large;height:50%">
+        <span style="margin-left: 500px;">Question {{this.questionNumber}} of {{this.noOfQuestions}}</span>
+        <button mat-button color="primary" style="margin-left:445px" [disabled]="enableSubmit" (click)="onNext()" >Next</button>
+        <button mat-button color="primary" style="margin-left:5px"  (click)="onClose()" >Close</button>
+    </mat-toolbar>
+    <mat-card class="example-card">       
+    <form  [formGroup]="addQuestionsForm" (ngSubmit)="onSubmit()" class="example-form">
+       
+        <mat-form-field>
+          <input matInput type="text"  autocomplete="off"   placeholder="Enter the Question"  formControlName="questionControl" required>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input matInput type="text"  autocomplete="off" placeholder="Enter Choice 1"  formControlName="choice1Control" required>
+
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input matInput type="text" autocomplete="off"  placeholder="Enter Choice 2" formControlName="choice2Control" required>
+          
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input matInput type="text"  autocomplete="off" placeholder="Enter Choice 3" formControlName="choice3Control" required>
+            
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input matInput type="text" autocomplete="off"  placeholder="Enter Choice 4" formControlName="choice4Control" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" autocomplete="off"  placeholder="Enter Choice Answer Number " formControlName="choiceAnswerControl" required>
+        </mat-form-field>
+        <br/>
+        <button mat-raised-button type="submit" [disabled]="!enableSubmit" color="primary"style="margin-top:5px; margin-left:1200px">Submit</button>
+
+        
+    </form>
+ </mat-card>
+</div>

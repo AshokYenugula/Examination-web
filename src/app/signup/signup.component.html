@@ -1,0 +1,47 @@
+<div class="main-div">
+    <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-itle>Sign Up</mat-card-itle>
+    </mat-card-header>
+            <form  [formGroup]="signupForm" (ngSubmit)="onSingUp()">
+                <mat-form-field>
+                    <input style="width: 400px;" matInput type="text" autocomplete="off"  placeholder="Enter your Fisrt Name"  formControlName="firstName" required>
+                    <!-- <mat-error *ngIf="userNameControl.invalid">{{getErrorMessage()}}</mat-error> -->
+                    <!-- autocomplete="off" -->
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                    <input matInput type="text" autocomplete="off"  placeholder="Enter your Last Name"  formControlName="lastName" required>
+                    <!-- <mat-error *ngIf="userNameControl.invalid">{{getErrorMessage()}}</mat-error> -->
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                    <input matInput type="email" autocomplete="off" placeholder="Enter your EmailId" formControlName="emailId" required>
+                    <!-- <mat-error *ngIf="userNameControl.invalid">{{getErrorMessage()}}</mat-error> -->
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                    <input matInput type="password" autocomplete="off"  placeholder="Enter your Password" formControlName="password" required>
+                    <!-- <mat-error *ngIf="userNameControl.invalid">{{getErrorMessage()}}</mat-error> -->
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                    <input matInput type="number"  autocomplete="off" placeholder="Enter your Phone Number" formControlName="phoneNumber" required>
+                    <!-- <mat-error *ngIf="phoneNumber.invalid">Please enter valid 10 digit mobile number</mat-error> -->
+                </mat-form-field>
+                <br/>
+                <mat-radio-group formControlName="role" fxLayout="column" fxLayoutGap=".25rem">
+                    <mat-radio-button [value]="'admin'" style="margin-right: 10px;">Admin</mat-radio-button>
+                    <mat-radio-button [value]="'student'">Student</mat-radio-button>
+                </mat-radio-group>
+                <br/>
+                <a mat-raised-button routerLink="/login" routerLinkActive="active" style="margin-top: 10px">Back to Login</a>
+
+                <button mat-raised-button color="primary" style="margin-left:10px" >SignUp</button>
+               <!-- <a mat-raised-button routerLink="/signup" routerLinkActive="active" style="margin-left: 10px">Register</a> -->
+            </form>
+       
+        
+    </mat-card>
+
+  </div>

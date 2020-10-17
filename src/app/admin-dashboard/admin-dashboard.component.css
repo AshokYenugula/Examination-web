@@ -1,0 +1,16 @@
+table {
+    width: 70%;
+    margin-left: 200px;
+    margin-right: 900px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    height: 50%;
+    justify-content: center;
+  }
+
+  th, td {
+    overflow: hidden;
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }

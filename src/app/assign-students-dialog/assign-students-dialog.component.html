@@ -1,0 +1,97 @@
+<div *ngIf="dilogBoxType=='AssignStudents'">
+    <mat-card-header>
+            <mat-card-itle style="text-align: left;">Select Students to be Asssigned</mat-card-itle>
+    </mat-card-header>
+    <br/>
+<div *ngFor="let Obj of this.studentsToBeAssigned">
+    <label>
+        <input type="checkbox" [value]="Obj.customerId" (change)="selectedStudents($event)" />
+        {{Obj.firstName +'  '+ Obj.lastName}}
+    </label>
+</div>
+<br/>
+<div>
+<button mat-raised-button (click)="onNoClick()">Close</button>
+<button mat-raised-button color="primary" (click)="assignStudents()" style="position: absolute;margin-left: 5px;">Submit</button>
+</div>
+</div>
+
+<div *ngIf="dilogBoxType=='AddTest'">
+
+        <mat-card-header>
+            <mat-card-itle style="text-align: left;">Add Test Details</mat-card-itle>
+        </mat-card-header>
+        <br/>
+                <form  [formGroup]="testForm" (ngSubmit)="onAddTest()">
+                    <mat-form-field>
+                        <input matInput type="text" autocomplete="off"  placeholder="Enter the Test Name"  formControlName="testName" required>
+            
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                        <input matInput type="number" autocomplete="off" placeholder="Enter the Duration in Minutes"  formControlName="duration" required>
+                       
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                        <input matInput type="number" autocomplete="off"  placeholder="Enter the Pass Percentage"  formControlName="percentage" required>
+                       
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                        <input matInput type="number" autocomplete="off" placeholder="Enter No of Questions" formControlName="noOfQuestions" required>
+                    </mat-form-field>
+                    <br/>
+    
+                    <button mat-raised-button color="primary" style="margin-left:10px" type="submit">Submit</button>
+                    <button mat-button (click)="onNoClick()">Close</button>
+                </form>        
+</div>
+
+<div *ngIf="dilogBoxType=='StudentExamWarningBox'">
+    <!-- <span>Are you sure to exit the Test?</span>
+    <br/>
+    <span>Changes made won't be saved If so</span>
+    <br/>
+    <br/>
+    <button mat-raised-button (click)="onNoClick()">Close</button>
+    <button mat-raised-button (click)="onNoClick()" style="margin-left:5px">Yes</button> -->
+    <h1 mat-dialog-title>Hi {{this.customerAccount.firstName}}</h1>
+<div mat-dialog-content>
+  <h3>Are you Sure to exit the Test?</h3>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">No Thanks</button>
+  <button mat-button color="accent" (click)="onYesClick()" style="margin-left:5px" >Yes</button>
+</div>
+</div>
+
+<div *ngIf="dilogBoxType=='ExamSubmittedDialogue'">
+    <span>
+        <h2 style="text-align: center;">{{this.examSubmitMessage}}</h2>
+        <p>Your Exam has been Submitted Successfully. Click Ok to Check Your Result</p>
+        <button mat-button color="accent" (click)="onYesClick()" style="margin-left:450px">Ok</button>
+    </span>
+</div>
+
+<div *ngIf="dilogBoxType=='AddQuestionsDialog'">
+    <span>
+        <h2 style="text-align: center;">Sorry!!!</h2>
+        <p>Your have already assigned Questions for this Exam</p>
+        <button mat-button color="accent" (click)="onYesClick()" style="margin-left:250px">Ok</button>
+    </span>
+</div>
+
+<div *ngIf="dilogBoxType=='Logout'">
+
+    <h1 mat-dialog-title>Hi {{this.customerAccount.firstName}}</h1>
+<div mat-dialog-content>
+  <h3>Are you Sure you want to Logout?</h3>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">No Thanks</button>
+  <button mat-button color="accent" (click)="onYesClick()" style="margin-left:5px" >Yes</button>
+</div>
+</div>

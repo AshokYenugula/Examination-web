@@ -1,0 +1,21 @@
+
+  .example-card {
+    max-width: 400px;
+    height: 300px
+    padding-down 100px;
+  }
+  element.style {
+    margin-left: 100px;
+    margin-right: 82px;
+    padding-right: 67px;
+    padding-left: 50px;
+    justify-content: center;
+
+}
+.main-div{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+  
