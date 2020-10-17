@@ -61,7 +61,7 @@ action:string=''
           this._snackBar.open(this.message, this.action, {
       duration: 3000,
     });
-          this.router.navigate(['/login'])
+          this.router.navigate([''])
         }
       })
         
