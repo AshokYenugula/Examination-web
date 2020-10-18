@@ -86,11 +86,10 @@ export class AssignStudentsDialogComponent implements OnInit,OnDestroy {
   }
 
   assignStudents(){
-    const assignedTestValue=this.commonService.saveAssignedTest(this.selectedStudentsList).subscribe(data=>{
-      console.log(data)
+    this.commonService.saveAssignedTest(this.selectedStudentsList).subscribe(data=>{
+      console.log("ReturnData",data)
     })
     this.dialogRef.close({load:true});
-    this.subs.push(assignedTestValue)
   }
 
   //For Add Test
