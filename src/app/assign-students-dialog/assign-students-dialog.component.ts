@@ -67,6 +67,7 @@ export class AssignStudentsDialogComponent implements OnInit,OnDestroy {
     this.dialogRef.close({load:false});
   }
   selectedStudents(event:any){
+    debugger
     if (event.target.checked) {
      let assignedTests: AssignedTests=
      {
@@ -81,7 +82,8 @@ export class AssignStudentsDialogComponent implements OnInit,OnDestroy {
      this.selectedStudentsList.push(assignedTests)
      //console.log("NewSelectedStudents",this.selectedStudentsList)
     } else {
-      this.selectedStudentsList= this.selectedStudentsList.filter(e=>e.CustomerId==event.target.value)
+      const index = this.selectedStudentsList.findIndex(e=>e.CustomerId==event.target.value)
+      this.selectedStudentsList.splice(index,1)
     }
   }
 
