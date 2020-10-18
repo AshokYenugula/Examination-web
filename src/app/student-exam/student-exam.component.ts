@@ -193,11 +193,9 @@ onSubmitClick(){
      console.log(assignedTest)
      let submitTest:AssignedTests[]=[]
      submitTest.push(assignedTest)
-     debugger
-     const saveAssignedValue= this.commonService.saveAssignedTest(submitTest).subscribe(data=>{
+      this.commonService.saveAssignedTest(submitTest).subscribe(data=>{
       console.log(data)
     })
-    this.subs.push(saveAssignedValue)
  }
  reviewQuestions()
  {
